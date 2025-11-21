@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: workspace-python-backend
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt || (pip install --upgrade pip setuptools wheel && pip install -r requirements.txt --no-build-isolation)
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PORT
+        value: 8000
+      - key: FRONTEND_URL
+        sync: false
+      - key: CLERK_JWKS_URL
+        sync: false
+      - key: CLERK_JWT_AUD
+        sync: false
+      - key: CLERK_JWT_ISSUER
+        sync: false
+      - key: DEFAULT_EDU_URL
+        value: https://www.youtube.com/embed/?listType=playlist&list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH
+

@@ -1,0 +1,8 @@
+node_modules
+dist
+.env
+.vscode
+.DS_Store
+.venv
+python/venv
+python/Untitled5-checkpoint.ipynb
